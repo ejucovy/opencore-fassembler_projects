@@ -29,7 +29,7 @@ class ZineProject(Project):
                 default='{{env.base_path}}/var/secret.txt',
                 help='Path to the file containing the shared secret used to encrypt and decrypt the auth cookie'),
         Setting('admin_info_filename',
-                default='{{env.base_path/var/admin.txt',
+                default='{{env.base_path}}/var/admin.txt',
                 help='Path to the file containing credentials of a site admin user that can be used to query projects for their security policies and memberships'),
         Setting('internal_root_url',
                 default='http://localhost:{{env.base_port+1}}/openplans/',
