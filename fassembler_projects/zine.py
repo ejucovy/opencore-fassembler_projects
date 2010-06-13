@@ -10,7 +10,7 @@ class ZineProject(Project):
     title = 'Install Zine'
     settings = [
         Setting('zine_instances_directory',
-                default='{{env.base_path}}/var/{{project.name}}/instances',
+                default='{{env.var}}/{{project.name}}/instances',
                 help="Directory that will house all projects' Zine instances (config files and sqlite databases)",
                 ),
         Setting('port',
@@ -26,10 +26,10 @@ class ZineProject(Project):
                 default='http://socialplanning-opencore.googlecode.com/svn/fassembler/templates/zine',
                 help="SVN location of config template file(s)"),
         Setting('shared_secret_filename',
-                default='{{env.base_path}}/var/secret.txt',
+                default='{{env.var}}/secret.txt',
                 help='Path to the file containing the shared secret used to encrypt and decrypt the auth cookie'),
         Setting('admin_info_filename',
-                default='{{env.base_path}}/var/admin.txt',
+                default='{{env.var}}/admin.txt',
                 help='Path to the file containing credentials of a site admin user that can be used to query projects for their security policies and memberships'),
         Setting('internal_root_url',
                 default='http://localhost:{{env.base_port+1}}/openplans/',
