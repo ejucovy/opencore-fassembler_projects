@@ -47,24 +47,23 @@ class ZineProject(Project):
                 default='localhost',
                 help='Host to serve on'),
         Setting('spec',
-                default='requirements/tasktracker-req.txt',
+                default='requirements/zine-req.txt',
                 help='Specification of packages to install'),
+        Setting('config_tmpl_location',
+                default='http://socialplanning-opencore.googlecode.com/svn/fassembler/templates/zine',
+                help="SVN location of config template file(s)"),
         ]
 
     actions = [
         tasks.VirtualEnv(),
-        tasks.InstallSpec('Install TaskTracker',
+        tasks.InstallSpec('Install Zine',
                           '{{config.spec}}'),
-        tasks.InstallPasteConfig(path='tasktracker/src/tasktracker/fassembler_config.ini_tmpl'),
+        tasks.SvnCheckout('Checkout paste configuration template',
+                          '{{config.config_tmpl_location}}',
+                          'zine/src/paste_template'),
+        tasks.InstallPasteConfig(path='zine/src/paste_template/paste.ini_tmpl'),
         tasks.InstallPasteStartup(),
         tasks.InstallSupervisorConfig(),
-        tasks.CheckMySQLDatabase('Check database exists'),
-        tasks.Script('Run setup-app',
-                     ['paster', 'setup-app', '{{env.base_path}}/etc/{{project.name}}/{{project.name}}.ini#tasktracker'],
-                     use_virtualenv=True,
-                     cwd='{{env.base_path}}/{{project.name}}/src/{{project.name}}'),
-        tasks.SaveURI(path='/tasks'),
-        tasks.SaveCabochonSubscriber({'delete_project' : '/projects/{id}/tasks/project/destroy'}, use_base_port=True),
         ]
 
 
