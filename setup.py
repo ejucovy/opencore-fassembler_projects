@@ -25,5 +25,6 @@ setup(name='opencore-fassembler_projects',
       entry_points="""
       [fassembler.project]
       frontend = fassembler_projects.frontend:FrontendProject
+      zine = fassembler_projects.zine:ZineProject
       """,
       )
