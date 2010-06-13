@@ -52,6 +52,9 @@ class ZineProject(Project):
         Setting('config_tmpl_location',
                 default='http://socialplanning-opencore.googlecode.com/svn/fassembler/templates/zine',
                 help="SVN location of config template file(s)"),
+        Setting('shared_secret_filename',
+                default='{{env.base_base}}/var/secret.txt',
+                help='Path to the file containing the shared secret used to encrypt and decrypt the auth cookie'),
         ]
 
     actions = [
