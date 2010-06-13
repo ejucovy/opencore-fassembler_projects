@@ -53,8 +53,14 @@ class ZineProject(Project):
                 default='http://socialplanning-opencore.googlecode.com/svn/fassembler/templates/zine',
                 help="SVN location of config template file(s)"),
         Setting('shared_secret_filename',
-                default='{{env.base_base}}/var/secret.txt',
+                default='{{env.base_path}}/var/secret.txt',
                 help='Path to the file containing the shared secret used to encrypt and decrypt the auth cookie'),
+        Setting('admin_info_filename',
+                default='{{env.base_path/var/admin.txt',
+                help='Path to the file containing credentials of a site admin user that can be used to query projects for their security policies and memberships'),
+        Setting('internal_root_url',
+                default='http://localhost:{{env.base_port+1}}/openplans/',
+                help='Base url path to the opencore site root; if possible this should hit Zope directly using a non-internet-wide connection, because site admin credentials are passed in the HTTP request'),
         ]
 
     actions = [
