@@ -48,6 +48,15 @@ class FrontendProject(Project):
         Setting('config_tmpl_location',
                 default='http://socialplanning-opencore.googlecode.com/svn/fassembler/templates/frontend',
                 help="SVN location of config template file(s)"),
+        Setting('use_twirlip',
+                default='1',
+                help="Set to 0 if you don't have twirlip enabled"),
+        Setting('shared_secret_filename',
+                default='{{env.var}}/secret.txt',
+                help='Path to the file containing the shared secret used to encrypt and decrypt the auth cookie'),
+        Setting('twirlip_remote_uri',
+                default='http://localhost:{{env.base_port+7}}',
+                help="Base domain and port that Twirlip is listening on"),
         ]
 
     actions = [
