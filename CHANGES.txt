@@ -10,3 +10,6 @@ into pages.
 
 To disable Twirlip support, build the frontend project with the
 setting ``use_twirlip=0``.
+
+Also included in this release is an experimental zine project;
+this is incomplete and should not be used in production builds.
