@@ -1,0 +1,12 @@
+0.2
+===
+
+Added support for Twirlip in the frontend project.
+
+If Twirlip is used (which is the default), the frontend will host
+Twirlip at the path /notifications and will also filter the entire
+application with Transcluder, since the UI for Twirlip is transcluded
+into pages.
+
+To disable Twirlip support, build the frontend project with the
+setting ``use_twirlip=0``.
