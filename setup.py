@@ -6,7 +6,14 @@ version = '0.2'
 setup(name='opencore-fassembler_projects',
       version=version,
       description="Assorted fassembler projects for creating repeatable OpenCore builds",
-      long_description=open("CHANGES.txt").read(),
+      long_description="""
+Contains fassembler projects for building components of an OpenCore stack.
+
+Changes
+=======
+
+%s
+""" % open("CHANGES.txt").read(),
       classifiers=[], 
       keywords='',
       author='Ethan Jucovy',
