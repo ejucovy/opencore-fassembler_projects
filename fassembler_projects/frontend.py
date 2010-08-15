@@ -16,7 +16,7 @@ class FrontendProject(Project):
                 default='{{env.base_port}}',
                 help='Port the frontend should listen on'),
         Setting('opencore_remote_uri',
-                default='http://localhost:{{env.base_port+1}}',
+                default='http://localhost:{{env.base_port+1}}{{if env.num_extra_zopes}}{{for i in range(env.num_extra_zopes)}} http://localhost:{{env.base_port+10*(i+1)+1}}{{endfor}}{{endif}}',
                 help="Base domain and port that opencore's Zope instance is listening on"),
         Setting('tasktracker_remote_uri',
                 default='http://localhost:{{env.base_port+4}}',

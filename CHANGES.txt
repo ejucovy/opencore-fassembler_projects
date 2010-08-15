@@ -1,3 +1,17 @@
+0.3
+---
+
+The frontend project now looks for the ``num_extra_zopes`` setting in
+build.ini [general] section. 
+
+This setting is now used to determine the default value of
+``opencore_remote_uri`` if that parameter is not set.
+
+If ``num_extra_zopes`` is set, the default value of
+``opencore_remote_uri`` will now be a space-separated list of URLs for
+all the Zope instances built (assumed to be on their default ports,
+e.g. 10001, 10011, 10021 etc)
+
 0.2
 ---
 
